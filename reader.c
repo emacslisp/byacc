@@ -2170,7 +2170,7 @@ pack_symbols(void)
             printf("v is 0 0\n");
             continue;
           }
-        printf("v is %s %d\n",v[m] -> name,v[m] -> value);
+        printf("v[%d] is %s %d\n", m, v[m] -> name,v[m] -> value);
         
       }
 
@@ -2211,7 +2211,7 @@ pack_symbols(void)
     FREE(v);
     i = 0;
     printf("symbol_name: \n");
-    for(i = 0;i <= nsyms;i++)
+    for(i = 0;i < nsyms;i++)
       {
 	printf("%s\t",symbol_name[i]);
         
@@ -2219,7 +2219,7 @@ pack_symbols(void)
     printf("\n");
 
     printf("symbol_value: \n");
-    for(i = 0;i <= nsyms;i++)
+    for(i = 0;i < nsyms;i++)
       {
 	printf("%d\t",symbol_value[i]);
       }
