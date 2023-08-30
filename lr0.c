@@ -530,12 +530,12 @@ set_derives(void)
       }
     printf("\n");
 
-#ifdef	DEBUG
+// #ifdef	DEBUG
     print_derives();
-#endif
+// #endif
 }
 
-#ifdef	DEBUG
+// #ifdef	DEBUG
 void
 print_derives(void)
 {
@@ -556,7 +556,7 @@ print_derives(void)
 
     putchar('\n');
 }
-#endif
+//#endif
 
 static void
 set_nullable(void)

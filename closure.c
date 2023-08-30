@@ -106,9 +106,9 @@ set_first_derives(void)
 	rrow += rulesetsize;
     }
 
-#ifdef	DEBUG
+//#ifdef	DEBUG
     print_first_derives();
-#endif
+// #endif
 
     FREE(EFF);
 }
@@ -174,9 +174,9 @@ closure(short *nucleus, int n)
     while (csp < csend)
 	*itemsetend++ = *csp++;
 
-#ifdef	DEBUG
+// #ifdef	DEBUG
     print_closure(n);
-#endif
+// #endif
 }
 
 void
@@ -230,7 +230,7 @@ print_EFF(void)
     }
 }
 
-#ifdef	DEBUG
+// #ifdef	DEBUG
 void
 print_first_derives(void)
 {
@@ -263,4 +263,4 @@ print_first_derives(void)
     fflush(stdout);
 }
 
-#endif
+// #endif

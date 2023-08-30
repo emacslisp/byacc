@@ -1,0 +1,83 @@
+   0  $accept : Estart $end
+
+   1  Estart : Bexp
+   2         | Estart '+' Bexp
+   3         | Estart '*' Bexp
+
+   4  Bexp : '0'
+   5       | '1'
+
+state 0
+	$accept : . Estart $end  (0)
+
+	'0'  shift 1
+	'1'  shift 2
+	.  error
+
+	Estart  goto 3
+	Bexp  goto 4
+
+
+state 1
+	Bexp : '0' .  (4)
+
+	.  reduce 4
+
+
+state 2
+	Bexp : '1' .  (5)
+
+	.  reduce 5
+
+
+state 3
+	$accept : Estart . $end  (0)
+	Estart : Estart . '+' Bexp  (2)
+	Estart : Estart . '*' Bexp  (3)
+
+	$end  accept
+	'+'  shift 5
+	'*'  shift 6
+	.  error
+
+
+state 4
+	Estart : Bexp .  (1)
+
+	.  reduce 1
+
+
+state 5
+	Estart : Estart '+' . Bexp  (2)
+
+	'0'  shift 1
+	'1'  shift 2
+	.  error
+
+	Bexp  goto 7
+
+
+state 6
+	Estart : Estart '*' . Bexp  (3)
+
+	'0'  shift 1
+	'1'  shift 2
+	.  error
+
+	Bexp  goto 8
+
+
+state 7
+	Estart : Estart '+' Bexp .  (2)
+
+	.  reduce 2
+
+
+state 8
+	Estart : Estart '*' Bexp .  (3)
+
+	.  reduce 3
+
+
+6 terminals, 3 nonterminals
+6 grammar rules, 9 states
